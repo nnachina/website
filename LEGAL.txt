@@ -1,0 +1,2 @@
+Exceptions to the LICENSE.txt application
+will be placed x mentioned here.

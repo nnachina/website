@@ -1,0 +1,25 @@
+baseURL = "/"
+languageCode = "en-us"
+title = "Deep Ocean Abyss"
+publishDir = "../nnachina.github.io"
+
+[params]
+  [params.surface]
+    title = "The Surface"
+    description = "Where sunlight dances on the waves"
+  
+  [params.twilight]
+    title = "Twilight Zone"
+    description = "200-1000 meters deep"
+  
+  [params.midnight]
+    title = "Midnight Zone"
+    description = "1000-4000 meters deep"
+  
+  [params.abyssal]
+    title = "Abyssal Zone"
+    description = "4000-6000 meters deep"
+  
+  [params.abyss]
+    title = "The Abyss"
+    description = "Into the darkness below 6000 meters"

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⋂⋂ACHINA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="{{ "css/styles.css" | relURL }}">
+    <link rel="preload" as="style" href="{{ "css/styles.css" | relURL }}">
+</head>
+<body>
+    <div class="wip-notice" id="wipNotice">
+        <div class="wip-message">This Site Is Extremely Work-In-Progress!</div>
+        <button class="wip-close" onclick="document.getElementById('wipNotice').style.display='none'; document.querySelector('.site-header').style.top='0';" aria-label="Close notice">
+            <span>×</span>
+        </button>
+    </div>
+    
+    <div class="ocean-container">
+        <div class="wave wave1"></div>
+        <div class="wave wave2"></div>
+        <div class="wave wave3"></div>
+        <div class="wave wave4"></div>
+    </div>
+    
+    <header class="site-header">
+        <div class="bubble-cloud bubble-cloud-1"></div>
+        <div class="bubble-cloud bubble-cloud-2"></div>
+        <div class="bubble-cloud bubble-cloud-3"></div>
+        <div class="bubble-cloud bubble-cloud-4"></div>
+        <div class="bubble-cloud bubble-cloud-5"></div>
+        <div class="bubble-cloud bubble-cloud-6"></div>
+        <div class="bubble-cloud bubble-cloud-7"></div>
+        <div class="bubble-cloud bubble-cloud-8"></div>
+        <h1 class="site-title">Lost In A Sea Of<br>Parentheses</h1>
+        <div class="header-bottom">
+            <div class="gear-ship">
+                <div class="gear">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="#f9a825">
+                        <defs>
+                            <mask id="gear-mask">
+                                <rect width="200" height="200" fill="white"/>
+                                <circle cx="100" cy="100" r="18" fill="black"/>
+                            </mask>
+                        </defs>
+                        <g mask="url(#gear-mask)">
+                            <circle cx="100" cy="100" r="50" fill="#f9a825"/>
+                            <circle cx="100" cy="100" r="40" fill="#fbc02d"/>
+                        </g>
+                        <circle cx="100" cy="100" r="18" fill="none" stroke="#f9a825" stroke-width="12"/>
+                        <g id="teeth" mask="url(#gear-mask)">
+                            <rect x="90" y="35" width="20" height="18" rx="2"/>
+                            <rect x="90" y="147" width="20" height="18" rx="2"/>
+                            <rect x="147" y="90" width="18" height="20" rx="2"/>
+                            <rect x="35" y="90" width="18" height="20" rx="2"/>
+                            <rect x="125" y="48" width="20" height="18" rx="2" transform="rotate(45 135 57.5)"/>
+                            <rect x="55" y="133" width="20" height="18" rx="2" transform="rotate(45 65 142.5)"/>
+                            <rect x="125" y="133" width="20" height="18" rx="2" transform="rotate(-45 135 142.5)"/>
+                            <rect x="55" y="48" width="20" height="18" rx="2" transform="rotate(-45 65 57.5)"/>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+            <div class="ship-wave">
+            </div>
+            <nav class="ocean-navbar">
+                <a href="/" class="navbar-brand">⋂⋂ACHINA</a>
+                <div class="navbar-center">LISP + MACHINE(s)</div>
+                <a href="https://github.com/grantsform" class="navbar-link" target="_blank" rel="noopener noreferrer">GRANTSFORM</a>
+            </nav>
+            <div class="header-links">
+                <a href="#" class="bar-link">Writing</a>
+                <a href="#" class="bar-link">Videos</a>
+            </div>
+        </div>
+    </header>
+    
+    <div class="content">
+        {{ $zones := where .Site.RegularPages "Section" "zones" }}
+        {{ range $zones.ByWeight }}
+        <section class="depth-zone {{ .Params.zone }}" id="{{ .Params.zone }}">
+            <h1>{{ .Title | safeHTML }}</h1>
+            <p>{{ .Params.description }}</p>
+            {{ if .Content }}
+            <div class="zone-content">
+                {{ .Content }}
+            </div>
+            {{ end }}
+        </section>
+        {{ end }}
+    </div>
+    
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>© 2026, Joshua Steven Grant (ie: Jost Grant)</p>
+        </div>
+    </footer>
+    
+    <script src="{{ "js/script.js" | relURL }}"></script>
+</body>
+</html>
